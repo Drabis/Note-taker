@@ -1,0 +1,22 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drabis/Note-taker.git"
+  },
+  "author": "Aboulaye Drabo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Drabis/Note-taker/issues"
+  },
+  "homepage": "https://github.com/Drabis/Note-taker#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
