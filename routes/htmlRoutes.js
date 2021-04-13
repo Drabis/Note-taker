@@ -7,12 +7,12 @@ module.exports = function(app) {
     // Define GET 'note' request route should return 'note html'.
 
     app.get('/notes', (req, res) => {
-        res.sendFile(path.json(__dirname, '..Develop/public/notes.hrml'))
+        res.sendFile(path.join(__dirname, '..Develop/public/notes.html'))
     });
 
     // Set default route to home for all other page request
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/index.html"))
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, "..Develop/public/index.html"))
       })
 }
