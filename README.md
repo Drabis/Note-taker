@@ -1,7 +1,7 @@
 # Note Taker
 
   # Table of contents
-  * [Project links](#project links)
+  * [Projectl Links](#projectlinks)
   * [Description](#description)
   * [Installation](#installation)
   * [User Story](#userstory)
