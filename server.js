@@ -5,11 +5,11 @@ const express = require('express');
 const app = express(); 
 
 
-// SET AN INITIAL PORT ======
+// SET AN INITIAL PORT 
 
 let PORT = process.env.PORT || 8000;
 
-// SET UP TO HANDLE DATA PARSING AND STATIC FILES ======
+// SET UP TO HANDLE DATA PARSING AND STATIC FILES 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 

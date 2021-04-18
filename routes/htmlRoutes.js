@@ -1,11 +1,8 @@
 
-// IMPORT MODULES ================================================================================
-
+// IMPORT MODULES 
 const path = require('path');
 
-
-
-//SET UP HTML ROUTES AND EXPORT THE MODULE ================================================================================
+//SET UP HTML ROUTES AND EXPORT THE MODULE 
 
 module.exports = function(app) {
 
