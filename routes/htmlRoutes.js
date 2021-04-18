@@ -1,18 +1,22 @@
-//Import modules
+
+// IMPORT MODULES ================================================================================
+
 const path = require('path');
 
-// Set up HTML routes and export the module
+
+
+//SET UP HTML ROUTES AND EXPORT THE MODULE ================================================================================
 
 module.exports = function(app) {
-    // Define GET 'note' request route should return 'note html'.
 
-    app.get('/notes', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/notes.html'))
-    });
+  //Define GET `/notes` request route- Should return the `notes.html` file
+  app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/notes.html"))
+  })
 
-    // Set default route to home for all other page request
+  //Set default route to home for all other page  request - should return the `index.html` file
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"))
+  })
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, "../public/index.html"))
-      })
 }

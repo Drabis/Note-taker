@@ -1,19 +1,19 @@
+// IMPORT MODULES 
+
 const express = require('express');
-const path = require('path');
 
 const app = express(); 
 
-// Set an initial PORT
+
+// SET AN INITIAL PORT ======
 
 let PORT = process.env.PORT || 8000;
 
-// Set up handle data parsing files
+// SET UP TO HANDLE DATA PARSING AND STATIC FILES ======
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
-app.use(express.static("./Develop/public"));
-// app.use(express.static(path.join(__dirname, "./Develop/public")));
-// app.use( express.static('public'));
+app.use( express.static('public'));
 
 
 // IMPORT ROUTES - ORDER IS IMPORTANT 
@@ -22,9 +22,8 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 
+// SET UP LISTEN EVENT ON THE SERVER ======
 
-// SET UP LISTEN EVENT ON THE SERVER 
-
-app.listen(PORT, () => {
-  console.log(`App listening on PORT ${PORT}` );
+app.listen(PORT, function() {
+  console.log("App listening on PORT", PORT );
 })

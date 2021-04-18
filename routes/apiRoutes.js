@@ -1,5 +1,7 @@
+
+// IMPORT MODULES AND FILES ================================================================================
+
 const fs = require('fs');
-const uuid = require('uuid');
 
 const db = require('../db/db.json')
 
@@ -23,7 +25,7 @@ module.exports = function(app) {
     fs.writeFileSync("./db/db.json", JSON.stringify(db, null, '\t')); 
 
     //Return newNote to user
-    res.json(req.body) = uuid
+    res.json(req.body)
   })
 			
   //API DELETE request
@@ -39,3 +41,4 @@ module.exports = function(app) {
     res.status(200).end();
   });
 };
+
