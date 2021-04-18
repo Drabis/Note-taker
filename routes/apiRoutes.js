@@ -1,50 +1,41 @@
-//Importing modules and files
-
 const fs = require('fs');
-const path = require ('path');
-const uuvid1  = require('uuid/v1');
-const router = express.router();
-const express = require('express');
+const uuid = require('uuid');
 
-const db = require('../Develop/db/db.json');
-// set up API routes and export the module
+const db = require('../db/db.json')
+
+//SET UP API ROUTES AND EXPORT THE MODULE ================================================================================
 
 module.exports = function(app) {
 
-    // API get request
-    app.get('/api/notes', (req, res) => {
-        // add id to each note when sending response
-        res.json(db.map((note, i) => ({...note, id: i + ""})))
+  //API GET request
+  app.get('/api/notes', (req, res) => {
+    //add id to each note when sending response 
+    res.json(db.map((note, i) => ({...note, id: i + ""})))
+  })
 
-    })
-    //API post request
-    app.post('/api/notes', (req, res) => {
-        //add new note to the notes data 
-        db.push(req.body);
-        (req.body).id = uuid/v1
+  //API POST request
+  app.post("/api/notes", (req, res) => {
+   
+    //add new note to notes data
+    db.push(req.body);
+  
+    //Write the updated notes to db.json
+    fs.writeFileSync("./db/db.json", JSON.stringify(db, null, '\t')); 
 
-        //Write the update note to db.json
-        fs.readFileSync('../Develop/db/db.json', JSON.stringify(db), err => {
-            if (err) throw err;
-            console.log('Saved notes updated');
-        })
+    //Return newNote to user
+    res.json(req.body) = uuid
+  })
+			
+  //API DELETE request
+  app.delete('/api/notes/:id', (req, res) => {
 
-        // Return new note to user
-        res.json(req.body)
-    });
+    //Remove the note with given id
+    db.splice(req.params.id, 1)
 
-    // API delete request
-    app.delete('/api/notes/:id', (req, res) => {
-        //remove note with given id
-        db.splice(req.params.id, 1)
-        // write the update de db.json
-        fs.readFileSync('../Develop/db/db.json', JSON.stringify(db),err => {
-            if (err) throw err;
-            console.log('Note deleted and Saved notes updated');
-        })
+    //Write the updated notes to db.json
+    fs.writeFileSync("./db/db.json", JSON.stringify(db, null, '\t'))
 
-        // send response back without body
-        res.status(200).end();
-
-    });
-}
+    //send response back without body
+    res.status(200).end();
+  });
+};

@@ -17,6 +17,8 @@ const show = (elem) => {
   elem.style.display = 'inline';
 };
 
+console.log(saveNoteBtn)
+
 // Hide an element
 const hide = (elem) => {
   elem.style.display = 'none';
